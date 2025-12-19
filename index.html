@@ -31,7 +31,6 @@ body {
     text-decoration: none;
 }
 
-
 nav a {
     color: #ffffff;
     margin: 0 15px;
@@ -160,7 +159,6 @@ footer {
     100% { opacity: 0; visibility: hidden; }
 }
 
-/* small helpers for result boxes */
 .result-box {
     margin-top: 20px;
     padding: 16px;
@@ -168,6 +166,184 @@ footer {
     border-radius: 8px;
     color: #0b1140;
 }
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    color: #666;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* --- TAMBAHAN CSS DASHBOARD HELP CENTER --- */
+
+/* Reset padding khusus section FAQ agar dashboard bisa full width */
+#FAQ {
+    padding: 0;
+    background: #f4f7fa;
+    text-align: left; /* Override text-align center dari .section */
+}
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh; /* Agar memenuhi layar */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar Styling */
+.db-sidebar {
+    width: 250px;
+    background-color: #1a233a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
+
+.db-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: #aebcd5;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.db-menu a:hover, .db-menu a.active {
+    background-color: #27c24c;
+    color: white;
+}
+
+/* Main Content Styling */
+.db-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Search Bar Styling */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+.search-wrapper input {
+    width: 100%;
+    padding: 15px 45px; /* Space untuk icon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.search-icon-placeholder {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-weight: bold;
+}
+
+/* Grid Layout untuk FAQ & Chat */
+.db-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Modifikasi FAQ Container agar sesuai grid */
+.faq-container-styled {
+    flex: 2;
+    min-width: 300px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+    text-align: left;
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #333;
+    background: #fff;
+}
+
+.faq-answer {
+    padding: 0 20px 20px;
+    color: #666;
+    display: none;
+    line-height: 1.6;
+    border-top: 1px solid #eee;
+}
+.faq-item.active .faq-answer { display: block; }
+.faq-item.active .arrow { transform: rotate(180deg); transition: 0.3s; }
+
+/* Chat Widget Styling */
+.chat-widget {
+    flex: 1;
+    min-width: 280px;
+    background: #1a233a;
+    border-radius: 12px;
+    color: white;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+
+.chat-header {
+    padding: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    background: #151c2f;
+    border-radius: 12px 12px 0 0;
+}
+
+.chat-body {
+    padding: 20px;
+}
+
+.quick-btn {
+    display: block;
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.quick-btn:hover { background: rgba(255,255,255,0.2); }
+
+#startChatBtn {
+    width: 100%;
+    padding: 12px;
+    background: #211C84;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#startChatBtn:hover { background: #21a540; }
 </style>
 
 </head>
@@ -201,40 +377,6 @@ footer {
     </section>
 </div>
 
-<section id="features" class="hidden-page">
-    <h3>Fitur-Fitur SkillBites</h3>
-    <p>Eksplor berbagai fitur canggih SkillBites.</p>
-
-    <div class="card">AI Skill Coach</div>
-    <button class="cta-btn col-md-6 mb-3" onclick="openPage('AISkillCoach')">Mulai Jelajah</button>
-    <div class="card">Auto Assessment</div>
-    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MLearning')">Mulai Jelajah</button>
-    <div class="card">Skill Portfolio Generator</div>
-    <button class="cta-btn col-md-6 mb-3" onclick="openPage('Generator')">Mulai Jelajah</button>
-
-    <button class="back-btn" onclick="openPage('home')">Kembali</button>
-</section>
-
-<section id="MLearning" class="hidden-page">
-    <h1>Micro-Learning & Smart Progress Tracking : Materi 30–120 detik + assessment & rekomendasi yang terus menyesuaikan progres.</h1>
-    <p>(Syarat dan Ketentuan)</p>
-    <button class="back-btn" onclick="openPage('home')">Kembali</button>
-</section>
-
-<section id="Generator" class="hidden-page">
-    <h1>Portfolio and CV Generator</h1>
-    <p>(Syarat dan Ketentuan)</p>
-    <button class="back-btn" onclick="openPage('home')">Kembali</button>
-</section>
-
-<section id="AISkillCoach" class="hidden-page">
-    <h1>Pelatihan</h1>
-    <p>Pilih pelatihan yang ingin kamu mulai.</p>
-    <div class="card" onclick="openLogin('DataAnalystPage')">Data Analyst</div>
-    <div class="card" onclick="openLogin('VirtualAssessmentPage')">Virtual Assessment</div>
-    <button class="back-btn" onclick="openPage('home')">Kembali</button>
-</section>
-
 <section id="Login" class="hidden-page">
     <h2>Login</h2>
     <form onsubmit="event.preventDefault(); continueAfterLogin();">
@@ -251,13 +393,11 @@ footer {
 </section>
 
 <section id="JobTrack" class="hidden-page">
-    <h1>Ini diisi apa cuy ?</h1>
-    <p>Ini diisi apa cuy ?</p>
+    <h1> Apakah Anda siap belajar ?</h1>
+    <p>Pastikan Anda siap ?</p>
 
-    <div class="card">Ini diisi apa cuy ?</div>
-    <div class="card">Ini diisi apa cuy ?</div>
-    <div class="card">Ini diisi apa cuy ?</div>
-    <button class="cta-btn col-md-6 mb-3" onclick="openPage('SkillAssesment')">Mulai Jelajah</button>
+    <div class="card">Jika Anda siap, click tombol "Mulai".</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('SkillAssesment')">Mulai</button>
     <button class="back-btn" onclick="openPage('home')">Kembali</button>
 </section>
 
@@ -345,7 +485,6 @@ footer {
         </div>
 
         <button class="cta-btn submit-answer" id="submitKuisEmail" style="margin-top: 20px;">Kirim Jawaban</button>
-        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
 
     <div id="hasilEmail" class="result-box" style="display:none;">
@@ -354,6 +493,7 @@ footer {
         <p><strong>Rincian Penilaian:</strong></p>
         <ul id="detailEmail"></ul>
         <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiEmail"></span></p>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
 
     <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
@@ -410,7 +550,6 @@ footer {
         </div>
 
         <button class="cta-btn submit-answer" id="submitKuisAdmin" style="margin-top: 20px;">Kirim Jawaban</button>
-        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
 
     <div id="hasilAdmin" class="result-box" style="display:none;">
@@ -419,6 +558,7 @@ footer {
         <p><strong>Rincian Penilaian:</strong></p>
         <ul id="detailAdmin"></ul>
         <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiAdmin"></span></p>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
     <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
 </section>
@@ -460,7 +600,6 @@ footer {
         </div>
 
         <button class="cta-btn submit-answer" id="submitKuisOrganis" style="margin-top: 20px;">Kirim Jawaban</button>
-        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
 
     <div id="hasilOrganis" class="result-box" style="display:none;">
@@ -469,6 +608,7 @@ footer {
         <p><strong>Rincian Penilaian:</strong></p>
         <ul id="detailOrganis"></ul>
         <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiOrganis"></span></p>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
     </div>
     <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
 </section>
@@ -640,16 +780,612 @@ footer {
         <ul id="detailTA9"></ul>
         <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA9"></span></p>
     </div>
+    <button id="btnSelesai" class="cta-btn" style="display:none; margin:40px auto;" onclick="openPage('roadmapBelajar')">
+    Selesai & Lanjut
+</button>
+
 </section>
 
-<section id="VirtualAssessmentPage" class="hidden-page">
-    <h1>Tujuan Karir</h1>
-    <p>Masukkan tujuan karir yang ingin kamu capai.</p>
+<section id="roadmapBelajar" class="hidden-page">
+    <h1>Roadmap Belajar</h1>
+    <p>Pembelajaran</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Pembelajaran 1</h5>
+        <p class="card-text">Deskripsi</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Pembelajaran 2</h5>
+        <p class="card-text">Deskripsi</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Pembelajaran 3</h5>
+        <p class="card-text">Deskripsi</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Pembelajaran 4</h5>
+        <p class="card-text">Deskripsi</p>
+      </div>
+    </div>
+  </div>
+</div>
+    <button class="cta-btn" onclick="openPage('dailyTask')">Berikutnya</button>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="dailyTask" class="hidden-page">
+    <h1>Tugas Harian</h1>
+    <p>Buatlah sebuah email untuk sebuah perusahaan seperti yang sudah Anda pelajari</p>
 
     <textarea style="width:80%; height:120px; padding:10px;"></textarea>
 
-    <button class="cta-btn" onclick="openPage('JobMatch')">Submit</button>
+    <button class="cta-btn" onclick="openPage('mLearning')">Berikutnya</button>
     <button class="back-btn" onclick="openPage('AISkillCoach')">Kembali</button>
+</section>
+
+<section id="mLearning" class="hidden-page">
+    <h3>Micro Learning</h3>
+    <p>Micro-Learning & Smart Progress Tracking : Materi 30–120 detik</p>
+
+    <div class="card">Materi Komunikasi</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MKomunikasi')">Mulai</button>
+    <div class="card">Materi Email Handling</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MEmailHandling')">Mulai</button>
+    <div class="card">Materi Administrasi</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MAdministrasi')">Mulai</button>
+    <div class="card">Materi Organisasi</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MOrganisasi')">Mulai</button>
+
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+    
+<!--MLEARNING KOMUNIKASI-->
+<section id="MKomunikasi" class="hidden-page">
+    <h1>Belajar komunikasi tidak harus lama.
+        Micro learning ini membantu Anda menguasai keterampilan komunikasi penting 
+        melalui materi singkat, fokus, dan mudah dipahami.</h1>
+    <p>Silakan pelajari materi-materi di bawah ini.</p>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 1</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 2</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 3</h5>
+        <p class="card-text">Penjelasan</p>
+    <a href="#" class="btn btn-primary">Mulai</a>  
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 4</h5>
+        <p class="card-text">Penjelasan</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+    <button class="cta-btn" onclick="openPage('Task')">Lanjutkan</button>
+</section>
+
+<!--LEARNING EMAIL HANDLING-->
+<section id="MEmailHandling" class="hidden-page">
+    <h1>Micro learning email handling merupakan
+        pendekatan pembelajaran singkat untuk meningkatkan
+        keterampilan pengelolaan dan komunikasi email secara profesional.</h1>
+    <p>Silakan pelajari materi-materi di bawah ini.</p>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 1</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 2</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 3</h5>
+        <p class="card-text">Penjelasan</p>
+    <a href="#" class="btn btn-primary">Mulai</a>  
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 4</h5>
+        <p class="card-text">Penjelasan</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+    <button class="cta-btn" onclick="openPage('Task')">Lanjutkan</button>
+</section>
+
+<!--LEARNING ADMINISTRASI-->
+<section id="MAdministrasi" class="hidden-page">
+    <h1>Micro learning administrasi yang dirancang untuk
+        membantu Anda mengelola tugas administrasi secara rapi, efisien, dan profesional.</h1>
+    <p>Silakan pelajari materi-materi di bawah ini.</p>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 1</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 2</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 3</h5>
+        <p class="card-text">Penjelasan</p>
+    <a href="#" class="btn btn-primary">Mulai</a>  
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 4</h5>
+        <p class="card-text">Penjelasan</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+    <button class="cta-btn" onclick="openPage('Task')">Lanjutkan</button>
+</section>
+
+<!--LEARNING ORGANISASI-->
+<section id="MOrganisasi" class="hidden-page">
+    <h1>Micro learning organisasi merupakan
+        pendekatan pembelajaran singkat untuk meningkatkan pemahaman tentang
+        manajemen, struktur, dan dinamika organisasi.</h1>
+    <p>Silakan pelajari materi-materi di bawah ini.</p>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 1</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 2</h5>
+        <p class="card-text">Penjelasan</p>
+      <a href="#" class="btn btn-primary">Mulai</a>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 3</h5>
+        <p class="card-text">Penjelasan</p>
+    <a href="#" class="btn btn-primary">Mulai</a>  
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Materi 4</h5>
+        <p class="card-text">Penjelasan</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+    <button class="cta-btn" onclick="openPage('Task')">Lanjutkan</button>
+</section>
+
+<!--SIMULASI REAL WORK-->
+<section id="Task" class="hidden-page">
+    <h1>Simulasi Kerja Nyata.</h1>
+    <p>Rasakan pengalaman kerja nyata sebagai Virtual Assistant melalui simulasi tugas harian yang praktis dan interaktif.</p>
+    
+    <h1>Peran Anda hari ini.</h1>
+    <p>Hari ini Anda berperan sebagai Virtual Assistant.
+       Tugas Anda adalah membantu klien mengelola komunikasi dan jadwal kerja secara profesional.</p>
+       <p>Tugas Anda hari ini :</p>
+
+        <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Balas 5 email<br>1. Pilah email penting<br>2. Gunakan bahasa profesinal</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+ <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Update Kalender<br>1. Tambahkan jadwal meeting<br>2. Pastikan tidak bentrok</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+       <button class="cta-btn" onclick="openPage('Email')">Lanjutkan</button>
+</section>
+
+<!--PAGE MENGERJAKAN TASK REAL WORK-->
+<section id="Email" class="hidden-page">
+  <h1>Inbox Email</h1>
+
+  <div class="card-group">
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Email dari Klien</h3>
+        <p class="card-text">Silakan klik tombol di bawah ini</p>
+        <button class="cta-btn" onclick="openPage('Klien')">Mulai</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Email dari Atasan</h3>
+        <p class="card-text">Silakan klik tombol di bawah ini</p>
+      </div>
+      <button class="cta-btn" onclick="openPage('Atasan')">Mulai</button>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Email dari Rekan Kerja</h3>
+        <p class="card-text">Silakan klik tombol di bawah ini</p>
+      </div>
+      <button class="cta-btn" onclick="openPage('RekanKerja')">Mulai</button>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Email dari Vendor</h3>
+        <p class="card-text">Silakan klik tombol di bawah ini</p>
+      </div>
+      <button class="cta-btn" onclick="openPage('Vendor')">Mulai</button>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Email dari HRD</h3>
+        <p class="card-text">Silakan klik tombol di bawah ini</p>
+      </div>
+      <button class="cta-btn" onclick="openPage('HRD')">Mulai</button>
+    </div>
+
+  </div>
+</section>
+
+<!--EMAIL KLIEN-->
+<section id="Klien" class="hidden-page">
+  <div class="card">
+  <div class="card-header">
+    Pengirim : Klien
+  </div>
+  <div class="card-body">
+        <p>Yth. Bapak/Ibu,<br>
+Perkenalkan, saya Andi Pratama dari PT Solusi Nusantara. Kami adalah perusahaan yang bergerak di bidang penyediaan solusi produk untuk mendukung efisiensi dan produktivitas operasional bisnis.
+Melalui email ini, kami ingin memperkenalkan produk terbaru kami yang dirancang untuk membantu perusahaan dalam meningkatkan kinerja serta mengoptimalkan proses kerja sehari-hari. Produk ini telah digunakan oleh berbagai klien dari beragam industri dengan hasil yang positif.
+Kami sangat terbuka apabila Bapak/Ibu berkenan meluangkan waktu untuk menerima penjelasan singkat atau diskusi lebih lanjut mengenai produk kami. Informasi detail, termasuk spesifikasi dan penawaran harga, dapat kami sampaikan sesuai kebutuhan perusahaan Bapak/Ibu.
+Apabila Bapak/Ibu tertarik atau memiliki pertanyaan, silakan membalas email ini atau menghubungi kami melalui kontak yang tertera di bawah.
+Terima kasih atas perhatian Bapak/Ibu. Kami menantikan kesempatan untuk dapat bekerja sama.<br>
+<br>Hormat kami,<br>
+Andi Pratama<br>
+Sales Executive<br>
+PT Solusi Nusantara<br>
+Telepon: 08xxxxxxxx<br>
+Email: sales@solusinusantara.co.id</p>
+  </div>
+</div>
+<label class="option">
+                <textarea id="jawabanKlien" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+    <div class="button-group">
+        <button class="cta-btn" id="submitKlien" style="margin-top:20px;">
+    Kirim</button>
+    </div>
+    <div id="hasilKlien" class="result-box" style="display:none;">
+        <h3>Penilaian</h3>
+        <p id="summaryKlien" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailKlien"></ul>
+        <button class="cta-btn" style="margin-top:20px;" onclick="openPage('FAQ')">Lanjutkan</button>
+    </div>
+</section>
+
+<!--EMAIL ATASAN-->
+<section id="Atasan" class="hidden-page">
+  <div class="card">
+  <div class="card-header">
+    Pengirim : Ibu Rina Susanti
+  </div>
+  <div class="card-body">
+        <p>Kepada Anda,<br>
+Saya ingin menegaskan kembali mengenai tugas yang seharusnya sudah diselesaikan minggu ini. Berdasarkan laporan terakhir, beberapa bagian dari pekerjaan Anda masih belum rampung sesuai jadwal yang telah ditetapkan.
+Mohon segera menindaklanjuti dan menyelesaikan tugas tersebut secepat mungkin. Jika terdapat kendala atau membutuhkan bantuan, harap segera informasikan kepada saya sehingga kita dapat mencari solusi bersama.
+Keterlambatan ini dapat memengaruhi alur kerja tim secara keseluruhan, oleh karena itu penting bagi Anda untuk segera mengambil langkah perbaikan. Saya menghargai kerja keras Anda, namun profesionalisme dan disiplin waktu tetap menjadi prioritas utama.
+Terima kasih atas perhatian dan kerjasamanya.<br>
+<br>Hormat saya,
+Rina Susanti<br>
+Supervisor<br>
+Departemen Operasional</p>
+  </div>
+</div>
+
+    <label class="option">
+                <textarea id="jawabanAtasan" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+    <div class="button-group">
+        <button class="cta-btn" id="submitAtasan" style="margin-top:20px;">
+    Kirim</button>
+    </div>
+    <div id="hasilAtasan" class="result-box" style="display:none;">
+        <h3>Penilaian</h3>
+        <p id="summaryAtasan" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailAtasan"></ul>
+        <button class="cta-btn" style="margin-top:20px;" onclick="openPage('FAQ')">Lanjutkan</button>
+    </div>
+</section>
+
+<!--EMAIL REKAN KERJA-->
+<section id="RekanKerja" class="hidden-page">
+  <div class="card">
+  <div class="card-header">
+    Pengirim : Dina
+  </div>
+  <div class="card-body">
+        <p>Hey Kamu,<br>
+Aku lagi agak stuck nih sama tugas X yang harus diselesain hari ini. Kayaknya kamu jago di bagian ini, jadi aku pikir mending kamu aja yang handle deh, biar cepet kelar 😅.
+Kalau bisa, sekalian dong bikin laporan Y juga, soalnya aku lagi kebanjiran kerjaan lain dan nggak sempet ngurusin itu. Aku sih yakin kamu bisa atur semuanya, hehe.
+Thanks banget sebelumnya ya! Aku bakal “ngutang budi” kok nanti 😎<br>
+<br>Cheers,<br>
+Dina</p>
+  </div>
+</div>
+
+   <label class="option">
+                <textarea id="jawabanRekanKerja" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+    <div class="button-group">
+        <button class="cta-btn" id="submitRekanKerja" style="margin-top:20px;">
+    Kirim</button>
+    </div>
+    <div id="hasilRekanKerja" class="result-box" style="display:none;">
+        <h3>Penilaian</h3>
+        <p id="summaryRekanKerja" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailRekanKerja"></ul>
+        <button class="cta-btn" onclick="openPage('FAQ')">Lanjutkan</button>
+    </div>
+</section>
+
+<!--EMAIL VENDOR-->
+<section id="Vendor" class="hidden-page">
+  <div class="card">
+  <div class="card-header">
+    Pengirim : PT. Prima Logistic
+  </div>
+  <div class="card-body">
+        <p>Yth. Anda,<br>
+Perkenalkan, saya Bayu dari PT Prima Logistic, vendor yang menangani pengiriman produk untuk perusahaan Anda.
+Kami ingin memberitahukan bahwa terjadi kendala pada pengiriman pesanan terakhir Anda (Order #4521). Sistem kami menunjukkan beberapa item telah dikirim, namun berdasarkan konfirmasi dari gudang Anda, beberapa produk tidak sampai.
+Kami membutuhkan bantuan Anda untuk:<br>
+1. Memverifikasi daftar produk yang diterima di gudang Anda.<br>
+2. Memberikan informasi apakah ada produk yang rusak atau hilang.<br>
+3. Menentukan prioritas: apakah Anda ingin kami mengirim ulang seluruh pesanan, atau hanya item yang hilang/rusak.<br>
+Kami memahami hal ini cukup merepotkan, namun keputusan Anda akan membantu kami menentukan langkah cepat agar proses pengiriman tidak tertunda lebih lama. Mohon dapat memberikan konfirmasi dalam 24 jam agar kami bisa segera menindaklanjuti.
+Terima kasih atas kerja sama dan pengertian Anda.<br>
+<br>Hormat kami,<br>
+Bayu Santoso<br>
+Account Manager<br>
+PT Prima Logistic<br>
+Email: bayu.santoso@prima-logistic.co.id<br>
+Telepon: 08xxxxxxx</p>
+  </div>
+</div>
+
+   <label class="option">
+                <textarea id="jawabanVendor" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+    <div class="button-group">
+        <button class="cta-btn" id="submitVendor" style="margin-top:20px;">
+    Kirim</button>
+    </div>
+    <div id="hasilVendor" class="result-box" style="display:none;">
+        <h3>Penilaian</h3>
+        <p id="summaryVendor" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailVendor"></ul>
+        <button class="cta-btn" onclick="openPage('FAQ')">Lanjutkan</button>
+    </div>
+</section>
+
+<!--EMAIL HRD-->
+<section id="HRD" class="hidden-page">
+  <div class="card">
+  <div class="card-header">
+    Pengirim : Ibu Maya Putri
+  </div>
+  <div class="card-body">
+        <p>Yth. Anda,<br>
+Perkenalkan, saya Sari Dewi dari Departemen HRD PT.xxxxx<br>
+Bersama email ini, kami ingin mengundang Anda untuk menghadiri sesi interview sebagai bagian dari proses rekrutmen untuk posisi [Nama Posisi]. Detail interview adalah sebagai berikut:
+Tanggal: 5 Desember 2027<br>
+Waktu: 10.00<br>
+Link Meet Online: www.meet.co.id<br>
+Durasi: ± 30 menit<br>
+Mohon konfirmasi kehadiran Anda melalui email ini paling lambat [Batas Konfirmasi]. Jika ada kendala terkait waktu atau lokasi, harap segera informasikan agar dapat dijadwalkan ulang.
+Kami menantikan kehadiran Anda dan semoga proses ini berjalan lancar.<br>
+<br>Hormat kami,<br>
+Sari Dewi<br>
+HRD [Nama Perusahaan]<br>
+Email: hrd@[perusahaan].co.id<br>
+Telepon: 08xxxxxxx</p>
+  </div>
+</div>
+
+    <label class="option">
+                <textarea id="jawabanHRD" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+    <div class="button-group">
+        <button class="cta-btn" id="submitHRD" style="margin-top:20px;">
+    Kirim</button>
+    </div>
+    <div id="hasilHRD" class="result-box" style="display:none;">
+        <h3>Penilaian</h3>
+        <p id="summaryHRD" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailHRD"></ul>
+        <button class="cta-btn" onclick="openPage('FAQ')">Lanjutkan</button>
+    </div>
+</section>
+
+<section id="FAQ" class="hidden-page">
+    <div class="dashboard-layout">
+            <div class="db-body">
+                <h1 style="color: #211C84; margin-top: 0;">Portofolio & CV Generator</h1>
+
+                <div class="search-wrapper">
+                    <span class="search-icon-placeholder">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Cari pertanyaan (contoh: AI, Password, System)...">
+                </div>
+
+                <div class="db-grid">
+                    <div class="faq-container-styled">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Bagaimana cara membuat Portofolio secara otomatis ?
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                AI kami menganalisis data pembelajaran Anda, pola jawaban, dan tren untuk memprediksi kebutuhan perusahaan di masa sekarang. Sistem ini belajar dari waktu ke waktu.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Bagaimana cara membuat CV secara otommatis ?
+                                <span class="arrow" onclick="open ('faq-answer')">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                AI kami menganalisis data pembelajaran Anda, pola jawaban, dan tren untuk memprediksi kebutuhan perusahaan di masa sekarang. Sistem ini belajar dari waktu ke waktu.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-widget">
+                        <div class="chat-header">
+                            💬 SkillBot
+                        </div>
+                        <div class="chat-body">
+                            <p style="font-size: 14px; margin-bottom: 20px;">Hi! I'm SkillBot, your AI assistant. How can I help you today?</p>
+                            
+                            <button class="quick-btn">Apa itu CV dan Portofolio?</button>
+                            <button class="quick-btn">CV & Portofolio Generator</button>
+                            <button class="quick-btn">Bagaimana cara membuat CV dan Portofolio dengan baik dan benar?</button>
+                            <button class="quick-btn">Apakah ada lowongan pekerjaan yang sesuai dengan spesifikasi saya?</button>
+                            
+                            <button id="startChatBtn">Start Chat with DriftBot</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </section>
 
 <section id="pricing" class="hidden-page">
@@ -722,6 +1458,67 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. LOGIKA ACCORDION (FAQ) ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Opsional: Tutup item lain jika ingin hanya satu yang terbuka
+            // faqItems.forEach(i => {
+            //     if(i !== item) i.classList.remove('active');
+            // });
+
+            // Toggle class 'active' untuk membuka/tutup jawaban
+            item.classList.toggle('active');
+        });
+    });
+
+    // --- 2. LOGIKA SEARCH BAR (PENCARIAN) ---
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', (e) => {
+        const searchText = e.target.value.toLowerCase();
+
+        faqItems.forEach(item => {
+            const questionText = item.querySelector('.faq-question').innerText.toLowerCase();
+            const answerText = item.querySelector('.faq-answer').innerText.toLowerCase();
+
+            // Cek apakah teks pencarian ada di judul atau jawaban
+            if (questionText.includes(searchText) || answerText.includes(searchText)) {
+                item.style.display = 'block'; // Tampilkan jika cocok
+            } else {
+                item.style.display = 'none';  // Sembunyikan jika tidak cocok
+            }
+        });
+    });
+
+    // --- 3. LOGIKA CHATBOT (SIMPEL) ---
+    const chatBtn = document.getElementById('startChatBtn');
+    
+    if(chatBtn) {
+        chatBtn.addEventListener('click', () => {
+            alert("Membuka jendela chat DriftBot..."); 
+            // Di aplikasi nyata, ini akan memicu fungsi untuk membuka modal window chat
+        });
+    }
+
+    // --- 4. LOGIKA SIDEBAR ACTIVE STATE ---
+    const menuLinks = document.querySelectorAll('.sidebar-menu a');
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Hapus class active dari semua link
+            menuLinks.forEach(l => l.classList.remove('active'));
+            // Tambahkan ke yang diklik
+            this.classList.add('active');
+        });
+    });
+});
+
     // Komunikasi
     document.getElementById("submitKuisKomunikasi")
         ?.addEventListener("click", handleKuisKomunikasi);
@@ -773,7 +1570,212 @@ document.addEventListener("DOMContentLoaded", () => {
     // TA9
     document.getElementById("submitTA9")
         ?.addEventListener("click", handleTA9);
+
+    //Email Klien
+    document.getElementById("submitKlien")
+        ?.addEventListener("click", nilaiEmailKlien);
+
+    //Email Atasan
+    document.getElementById("submitAtasan")
+        ?.addEventListener("click", nilaiEmailAtasan);
+
+    //Email Rekan Kerja
+    document.getElementById("submitRekanKerja")
+        ?.addEventListener("click", nilaiEmailRekan);
+
+    //Email Vendor
+    document.getElementById("submitVendor")
+        ?.addEventListener("click", nilaiEmailVendor);
+
+    //Email HRD
+    document.getElementById("submitHRD")
+        ?.addEventListener("click", nilaiEmailHRD);
 });
+
+//==================EMAIL KLIEN ===================
+function nilaiEmailKlien() {
+    const jawaban = document.getElementById("jawabanKlien").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (jawaban.length > 0) score += 5;
+    if (jawaban.length >= 30) score += 5;
+    if (jawaban.split(" ").length >= 10) score += 5;
+    if (
+        jawaban.includes("terima kasih") ||
+        jawaban.includes("anda") ||
+        jawaban.includes("kami")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } 
+    else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilKlien").style.display = "block";
+    document.getElementById("summaryKlien").innerText = summary;
+    document.getElementById("detailKlien").innerHTML = detail.join("");
+}
+
+//==================EMAIL ATASAN==================
+function nilaiEmailAtasan() {
+    const jawaban = document.getElementById("jawabanAtasan").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (jawaban.length > 0) score += 5;
+    if (jawaban.length >= 30) score += 5;
+    if (jawaban.split(" ").length >= 8) score += 5;
+    if (
+        jawaban.includes("siap") ||
+        jawaban.includes("akan") ||
+        jawaban.includes("baik") ||
+        jawaban.includes("segera")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } 
+    else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilAtasan").style.display = "block";
+    document.getElementById("summaryAtasan").innerText = summary;
+    document.getElementById("detailAtasan").innerHTML = detail.join("");
+}
+
+//=================EMAIL REKAN KERJA===============
+function nilaiEmailRekan() {
+    const jawaban = document.getElementById("jawabanRekan").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (jawaban.length > 0) score += 5;
+    if (jawaban.length >= 30) score += 5;
+    if (jawaban.split(" ").length >= 8) score += 5;
+    if (
+        jawaban.includes("bisa") ||
+        jawaban.includes("baik") ||
+        jawaban.includes("pertimbangkan")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } 
+    else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilRekan").style.display = "block";
+    document.getElementById("summaryRekan").innerText = summary;
+    document.getElementById("detailRekan").innerHTML = detail.join("");
+}
+
+//==================EMAIL VENDOR===================
+function nilaiEmailVendor() {
+    const jawaban = document.getElementById("jawabanVendor").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (jawaban.length > 0) score += 5;
+    if (jawaban.length >= 25) score += 5;
+    if (jawaban.split(" ").length >= 8) score += 5;
+    if (
+        jawaban.includes("siap") ||
+        jawaban.includes("akan") ||
+        jawaban.includes("baik") ||
+        jawaban.includes("segera")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } 
+    else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilVendor").style.display = "block";
+    document.getElementById("summaryVendor").innerText = summary;
+    document.getElementById("detailVendor").innerHTML = detail.join("");
+}
+
+//===================EMAIL HRD======================
+function nilaiEmailHRD() {
+    const jawaban = document.getElementById("jawabanHRD").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (jawaban.length > 0) score += 5;
+    if (jawaban.length >= 25) score += 5;
+    if (jawaban.split(" ").length >= 8) score += 5;
+    if (
+        jawaban.includes("siap") ||
+        jawaban.includes("akan") ||
+        jawaban.includes("baik") ||
+        jawaban.includes("segera") ||
+        jawaban.includes("saya") ||
+        jawaban.includes("datang")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } 
+    else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilHRD").style.display = "block";
+    document.getElementById("summaryHRD").innerText = summary;
+    document.getElementById("detailHRD").innerHTML = detail.join("");
+}
 
 // ================= TASK ASSESMENT 1 =================
 function handleTA1() {
@@ -1379,6 +2381,51 @@ function handleTA9() {
     document.getElementById("detailTA49").innerHTML = detail.join("");
 }
 
+//============ SUBMIT ALL TA ==========
+document.addEventListener("DOMContentLoaded", () => {
+
+    const totalSoal = 9;
+    const soalSelesai = new Set();
+    const btnSelesai = document.getElementById("btnSelesai");
+
+    if (!btnSelesai) {
+        console.error("Tombol Selesai tidak ditemukan");
+        return;
+    }
+
+    document.querySelectorAll(".cta-btn").forEach(button => {
+
+        if (button.id === "btnSelesai") return;
+
+        button.addEventListener("click", () => {
+            const questionCard = button.closest(".question-card");
+            if (!questionCard) return;
+
+            const questionId = questionCard.dataset.questionId;
+            const textarea = questionCard.querySelector("textarea");
+
+            soalSelesai.add(questionId);
+
+            console.log("Soal selesai:", soalSelesai.size);
+
+            if (soalSelesai.size === totalSoal) {
+                btnSelesai.style.display = "block";
+            }
+        });
+    });
+
+    btnSelesai.addEventListener("click", () => {
+
+    // Tampilkan halaman berikutnya
+    const nextPage = document.getElementById("roadmapBelajar");
+    if (nextPage) {
+        nextPage.classList.add("hidden-page");
+    }
+});
+
+});
+
+
 
 // ==========================================================
 // ================== 1. KUIS KOMUNIKASI ====================
@@ -1531,6 +2578,11 @@ function handleKuisOrganis(){
     document.getElementById("summaryOrganis").innerText = summary;
     document.getElementById("rekomendasiOrganis").innerText = rekomendasi;
 }
+
+// ================= DEFAULT PAGE =================
+document.addEventListener("DOMContentLoaded", () => {
+    openPage("home");
+});
 </script>
 </body>
 </html>
