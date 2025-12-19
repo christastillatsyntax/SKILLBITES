@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SkillBites Landing Page</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5faf5;
+    color: #211C84;
+}
+
+.header-center {
+    background: #211C84;
+    padding: 30px;
+    text-align: center;
+}
+
+.header-logo {
+    width: 140px; /* LEBIH BESAR */
+    margin-bottom: 10px;
+}
+
+.header-center nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    padding: 100px 40px;
+    text-align: center;
+    background:#e8f5e9;
+    color: #211C84;
+}
+.hero h1 { font-size: 48px; }
+.hero p { font-size: 20px; }
+
+.cta-btn {
+    padding: 14px 30px;
+    background: #211C84;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    display: inline-block;
+    width: 260px;
+    transition: 0.3s;
+}
+.card:hover { transform: scale(1.05); }
+
+/* --- CSS KUIS BARU (OPSI BERSUSUN) --- */
+.option {
+    display: block;
+    margin: 8px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    text-align: left;
+    cursor: pointer;
+    max-width: 600px;
+}
+
+.option:hover {
+    background: #e8f5e9;
+}
+
+.option input[type="checkbox"] {
+    margin-right: 10px;
+}
+/* -------------------------------------- */
+
+footer {
+    background: #211C84;
+    color: #e8f5e9;
+    text-align: center;
+    padding: 20px;
+}
+
+.hidden-page {
+    display: none;
+    padding: 60px;
+}
+
+.back-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #100e59;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #100e59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: splashFadeOut 0.8s ease forwards;
+    animation-delay: 2.2s;
+}
+
+.splash-logo {
+    width: 180px;
+    opacity: 0;
+    animation: logoFade 1.6s ease forwards;
+}
+
+@keyframes logoFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes splashFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* small helpers for result boxes */
+.result-box {
+    margin-top: 20px;
+    padding: 16px;
+    background: #e8f5e9;
+    border-radius: 8px;
+    color: #0b1140;
+}
+</style>
+
+</head>
+<body>
+
+<div id="splash">
+    <img src="./assets/logo.png" class="splash-logo" alt="SkillBites Logo">
+</div>
+
+<header class="header-center">
+    <img src="./assets/logo.png" class="header-logo" alt="SkillBites Logo">
+    <nav>
+        <a href="#" onclick="openPage('home')">Home</a>
+        <a href="#" onclick="openPage('features')">Features</a>
+        <a href="#" onclick="openPage('pricing')">Pricing</a>
+    </nav>
+</header>
+
+<div id="home" class="page">
+    <section class="hero">
+        <h1>Belajar Lebih Cepat & Cerdas</h1>
+        <p>Platform Micro-learning paling adaptif untuk skill masa depan.</p>
+        <button class="cta-btn" onclick="openPage('Login')">Sign In</button>
+    </section>
+
+    <section class="section">
+        <h2>Kenapa SkillBites?</h2>
+        <div class="card">AI Learning Coach</div>
+        <div class="card">Smart Progress Tracking</div>
+        <div class="card">Video Micro-learning</div>
+    </section>
+</div>
+
+<section id="features" class="hidden-page">
+    <h3>Fitur-Fitur SkillBites</h3>
+    <p>Eksplor berbagai fitur canggih SkillBites.</p>
+
+    <div class="card">AI Skill Coach</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('AISkillCoach')">Mulai Jelajah</button>
+    <div class="card">Auto Assessment</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('MLearning')">Mulai Jelajah</button>
+    <div class="card">Skill Portfolio Generator</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('Generator')">Mulai Jelajah</button>
+
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="MLearning" class="hidden-page">
+    <h1>Micro-Learning & Smart Progress Tracking : Materi 30–120 detik + assessment & rekomendasi yang terus menyesuaikan progres.</h1>
+    <p>(Syarat dan Ketentuan)</p>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="Generator" class="hidden-page">
+    <h1>Portfolio and CV Generator</h1>
+    <p>(Syarat dan Ketentuan)</p>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="AISkillCoach" class="hidden-page">
+    <h1>Pelatihan</h1>
+    <p>Pilih pelatihan yang ingin kamu mulai.</p>
+    <div class="card" onclick="openLogin('DataAnalystPage')">Data Analyst</div>
+    <div class="card" onclick="openLogin('VirtualAssessmentPage')">Virtual Assessment</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="Login" class="hidden-page">
+    <h2>Login</h2>
+    <form onsubmit="event.preventDefault(); continueAfterLogin();">
+        <label>Email</label>
+        <input type="email" class="form-control">
+
+        <label>Password</label>
+        <input type="password" class="form-control">
+
+        <button type="submit" class="cta-btn" style="margin-top:20px;">Sign In</button>
+    </form>
+
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="JobTrack" class="hidden-page">
+    <h1>Ini diisi apa cuy ?</h1>
+    <p>Ini diisi apa cuy ?</p>
+
+    <div class="card">Ini diisi apa cuy ?</div>
+    <div class="card">Ini diisi apa cuy ?</div>
+    <div class="card">Ini diisi apa cuy ?</div>
+    <button class="cta-btn col-md-6 mb-3" onclick="openPage('SkillAssesment')">Mulai Jelajah</button>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="SkillAssesment" class="hidden-page">
+    <h1>Skill Cards</h1>
+    <p>Pilih salah satu dari skill yang Anda minati</p>
+
+    <div class="card" onclick="openPage('KuisKomunikasi')">Komunikasi</div>
+    <div class="card" onclick="openPage('KuisEHandling')">Email Handling</div>
+    <div class="card" onclick="openPage('KuisAdmin')">Administration</div>
+    <div class="card" onclick="openPage('KuisOrganis')">Organization</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<!------------------->
+<!--KUIS KOMUNIKASI-->
+<!------------------->
+<section id="KuisKomunikasi" class="hidden-page">
+    <h1>Seberapa anda paham tentang komunikasi?</h1>
+    <p>Silakan pilih jawaban dari pertanyaan-pertanyaan berikut ini</p>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="Q1">
+            <h2>1. Rekan kerja kamu marah karena deadline mundur dan menuduh kamu tidak kooperatif. Apa jawaban terbaik?</h2>
+            <label class="option">
+                <input type="checkbox" name="kom_q1_option" value="A"> “Itu bukan salah saya, Anda juga terlambat kirim data.”
+            </label>
+            <label class="option">
+                <input type="checkbox" name="kom_q1_option" value="B"> “Saya paham kamu kesal. Mari kita evaluasi bersama keterlambatannya agar bisa selesai cepat.”
+            </label>
+            <label class="option">
+                <input type="checkbox" name="kom_q1_option" value="C"> “Sudahlah, jangan dibesar-besarkan.”
+            </label>
+            <label class="option">
+                <input type="checkbox" name="kom_q1_option" value="D"> “Saya tidak mau terlibat, itu bukan urusan saya.”
+            </label>
+        </div>
+
+        <div class="question-card" data-question-id="Q2">
+            <h3>2. Klien mengeluh balasan email kamu terlalu lama. Apa responsmu?</h3>
+            <label class="option">
+                <textarea id="jawabanKomunikasi2" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+        </div>
+
+        <button class="cta-btn submit-answer" id="submitKuisKomunikasi" style="margin-top: 20px;">Kirim Jawaban</button>
+    </div>
+
+    <div id="hasilKomunikasi" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Komunikasi)</h3>
+        <p id="summaryKomunikasi" style="font-weight:bold;"></p>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiKomunikasi"></span></p>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
+    </div>
+
+    <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
+</section>
+
+<!----------------------->
+<!--KUIS EMAIL HANDLING-->
+<!----------------------->
+<section id="KuisEHandling" class="hidden-page">
+    <h1>Email Handling</h1>
+    <p>Silakan pilih jawaban dari pertanyaan-pertanyaan berikut ini</p>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="Q1">
+            <h2>1. Kamu diminta membalas email yang terlalu informal. Pilih versi paling profesional:</h2>
+            <label class="option">
+                <input type="checkbox" name="email_q1_option" value="A"> “Hi, kak. sorry baru bales.”
+            </label>
+            <label class="option">
+                <input type="checkbox" name="email_q1_option" value="B"> “Selamat siang, mohon maaf atas keterlambatan membalas email Anda.”
+            </label>
+            <label class="option">
+                <input type="checkbox" name="email_q1_option" value="C"> “Halo, ini emailnya ya.”
+            </label>
+        </div>
+
+        <div class="question-card" data-question-id="Q2">
+            <h3>2. Tulis email profesional untuk menolak permintaan kerja sama, tetapi tetap menjaga hubungan baik</h3>
+            <label class="option">
+                <textarea id="jawabanEmail2" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+        </div>
+
+        <button class="cta-btn submit-answer" id="submitKuisEmail" style="margin-top: 20px;">Kirim Jawaban</button>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
+    </div>
+
+    <div id="hasilEmail" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Email Handling)</h3>
+        <p id="summaryEmail" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailEmail"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiEmail"></span></p>
+    </div>
+
+    <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
+</section>
+
+<!----------------------->
+<!--KUIS ADMINISTRATION-->
+<!----------------------->
+<section id="KuisAdmin" class="hidden-page">
+    <h1>Seberapa Anda bisa memanajemen data dan administrasi ?</h1>
+    <p>Silakan pilih jawaban dari pertanyaan-pertanyaan berikut ini</p>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q1">
+            <h2>1. Pilih jadwal paling efisien berdasarkan data berikut: <br>
+                Andi : bersedia hari Senin 13.00–16.00 dan Selasa 09.00–12.00 <br>
+                Rani : bersedia hari Senin 14.00–17.00 <br>
+                Dimas: bersedia hari Senin 15.00–17.00 <br>
+                Pilih waktu meeting terbaik.</h2>
+            <label class="option">
+                <input type="checkbox" name="admin_q1_option" value="A"> Senin 13.00
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q1_option" value="B">  Senin 14.00
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q1_option" value="C"> Senin 15.00
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q1_option" value="D"> Selasa 09.00
+            </label>
+        </div>
+
+        <div class="question-card" data-question-id="q2">
+            <h3>Situasi:<br>
+                Ada 4 tugas:<br>
+                1. Balas email pimpinan<br>
+                2. Input data harian<br>
+                3. Beli ATK<br>
+                4. Buat laporan mingguan<br>
+                Pilih jawaban di bawah ini</h3>
+            <label class="option">
+                <input type="checkbox" name="admin_q2_option" value="A"> 4-2-3-1
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q2_option" value="B"> 3-2-4-1
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q2_option" value="C"> 1-4-2-3
+            </label>
+            <label class="option">
+                <input type="checkbox" name="admin_q2_option" value="D"> 1-2-4-3
+            </label>
+        </div>
+
+        <button class="cta-btn submit-answer" id="submitKuisAdmin" style="margin-top: 20px;">Kirim Jawaban</button>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
+    </div>
+
+    <div id="hasilAdmin" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Administrasi)</h3>
+        <p id="summaryAdmin" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailAdmin"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiAdmin"></span></p>
+    </div>
+    <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
+</section>
+
+<!------------------->
+<!--KUIS ORGANISASI-->
+<!------------------->
+<section id="KuisOrganis" class="hidden-page">
+    <h1>Seberapa Anda paham tentang kerja sama dan pembagian tugas ?</h1>
+    <p>Silakan jawab pertanyaan-pertanyaan berikut ini</p>
+
+    <div class="quiz-container">
+         <div class="question-card" data-question-id="q1">
+            <h3>Bayangkan Anda adalah ketua tim dengan 3 anggota:<br>
+                A. ahli desain<br>
+                B. ahli riset<br>
+                C. ahli public speaking<br>
+                Atasan Anda memberikan tugas presentasi hasil riset + slide desain. Bagaimana Anda membagi tugas?
+            </h3>
+            <label class="option">
+                <textarea id="jawabanOrganis1" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+        </div>
+
+        <div class="question-card" data-question-id="q2">
+            <h3>Dua anggota tim berselisih karena salah paham. Apa langkah pertama yang harus kamu lakukan?</h3>
+            <label class="option">
+                <input type="checkbox" name="organis_q2_option" value="A"> Memarahi salah satu dari mereka yang bersalah.
+            </label>
+            <label class="option">
+                <input type="checkbox" name="organis_q2_option" value="B"> Ajak keduanya bicara dalam forum kecil untuk dengar dua sisi.
+            </label>
+            <label class="option">
+                <input type="checkbox" name="organis_q2_option" value="C"> Biarkan sampai mereka tenang sendiri.
+            </label>
+            <label class="option">
+                <input type="checkbox" name="organis_q2_option" value="D"> Laporkan ke atasan segera.
+            </label>
+        </div>
+
+        <button class="cta-btn submit-answer" id="submitKuisOrganis" style="margin-top: 20px;">Kirim Jawaban</button>
+        <button class="cta-btn col-md-6 mb-3" onclick="openPage('TaskAssesment')">Lanjutkan</button>
+    </div>
+
+    <div id="hasilOrganis" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryOrganis" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailOrganis"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiOrganis"></span></p>
+    </div>
+    <button class="back-btn" onclick="openPage('SkillAssesment')">Kembali</button>
+</section>
+
+<!--TASK ASSESMENT-->
+<section id="TaskAssesment" class="hidden-page">
+    <h1>Task Assesment</h1>
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q1">
+            <h3>Klien menanyakan status revisi dokumen. Tulis balasan email yang profesional, sopan, dan memberikan update yang jelas.</h3>
+            <label class="option">
+                <textarea id="jawabanTA1" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA1" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA1" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis Task Assesment</h3>
+        <p id="summaryTA1" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA1"></ul>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q2">
+            <h3>Urutkan empat email berikut berdasarkan tingkat prioritas:<br>
+                a. Urgensi Tinggi<br>
+                b. Email Personal<br>
+                c. Spam<br>
+                d. Revisi Laporan”<br>
+                Berikan penjelasan Anda terkait jawaban tersebut.</h3>
+            <label class="option">
+                <textarea id="jawabanTA2" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA2" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA2" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA2" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA2"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA2"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q3">
+            <h3>Bayangkan Anda adalah seorang Marketing dalam sebuah perusahaan. Buatlah jadwal meeting antara CEO dan Klien. CEO free 09.00–10.00, klien free 10.00–12.00.</h3>
+            <label class="option">
+                <textarea id="jawabanTA3" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA3" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA3" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA3" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA3"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA3"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q4">
+            <h3>Kategorikan 6 file berikut yang sesuai ke dalam folder: Finance, HR, Marketing.
+                1. Laporan_Gaji_Karyawan.pdf<br>
+                2. Anggaran_Promosi_Q3.xlsx<br>
+                3. Data_Rekrutmen_2025.docx<br>
+                4. Laporan_Laba_Rugi_2024.xlsx<br>
+                5. Rencana_Kampanye_Media_Sosial.pptx<br>
+                6. Kontrak_Kerja_Karyawan.pdf<br></h3>
+            <label class="option">
+                <textarea id="jawabanTA4" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA4" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA4" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA4" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA4"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA4"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q5">
+            <h3>Seorang user menanyakan status refund. Tulis respon chat yang singkat, jelas, ramah, dan empatik.</h3>
+            <label class="option">
+                <textarea id="jawabanTA5" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA5" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA5" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA5" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA5"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA5"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q6">
+            <h3>Jelaskan kepada user bahwa sistem sedang mengalami downtime selama ±20 menit. Gunakan bahasa profesional dan menenangkan.</h3>
+            <label class="option">
+                <textarea id="jawabanTA6" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA6" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA6" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA6" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA6"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA6"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q7">
+            <h3>Masukkan data ke form sesuai format yang diminta:<br>
+                Nama, Email, Tanggal, Nomor Telepon.</h3>
+            <label class="option">
+                <textarea id="jawabanTA7" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA7" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA7" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA7" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA7"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA7"></span></p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q8">
+            <h3>Susun urutan kerja paling efektif untuk 6 tugas hari ini:<br>
+                Balas email klien, Input data, Rapat dengan Marketing, Follow-up Vendor, Membuat laporan, Update jadwal CEO.</h3>
+            <label class="option">
+                <textarea id="jawabanTA8" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA8" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA8" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA8" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA8"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA8"></span></p>
+    </div>
+    
+    <div class="quiz-container">
+        <div class="question-card" data-question-id="q9">
+            <h3>Meeting tiba-tiba dipindah ke jam 09.00. Padahal di jam tersebut Anda ada kepentingan lain. Bagaimana cara Anda menyelesaikan masalah tersebut tanpa merugikan salah satu pihak ?</h3>
+            <label class="option">
+                <textarea id="jawabanTA9" rows="4" style="width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 10px;" placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </label>
+            <button class="cta-btn" id="submitTA9" style="margin-top:20px;">
+    Kirim Jawaban </button>
+        </div>
+        <div id="hasilTA9" class="result-box" style="display:none;">
+        <h3>✨ Hasil Analisis AI Skill Coach (Organisasi)</h3>
+        <p id="summaryTA9" style="font-weight:bold;"></p>
+        <p><strong>Rincian Penilaian:</strong></p>
+        <ul id="detailTA9"></ul>
+        <p><strong>Rekomendasi Pembelajaran:</strong> <span id="rekomendasiTA9"></span></p>
+    </div>
+</section>
+
+<section id="VirtualAssessmentPage" class="hidden-page">
+    <h1>Tujuan Karir</h1>
+    <p>Masukkan tujuan karir yang ingin kamu capai.</p>
+
+    <textarea style="width:80%; height:120px; padding:10px;"></textarea>
+
+    <button class="cta-btn" onclick="openPage('JobMatch')">Submit</button>
+    <button class="back-btn" onclick="openPage('AISkillCoach')">Kembali</button>
+</section>
+
+<section id="pricing" class="hidden-page">
+    <h1>Paket Berlangganan</h1>
+    <div class="card" onclick="openPage('HargaBegin')">Beginner</div>
+    <div class="card" onclick="openPage('HargaInter')">Intermediate</div>
+    <div class="card" onclick="openPage('HargaPrem')">Premium</div>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="HargaBegin" class="hidden-page">
+    <h1>(Harga)</h1>
+    <p>(Fitur-Fitur)</p>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="HargaInter" class="hidden-page">
+    <h1>(Harga)</h1>
+    <p>(Fitur-Fitur)</p>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<section id="HargaPrem" class="hidden-page">
+    <h1>(Harga)</h1>
+    <p>(Fitur-Fitur)</p>
+    <button class="back-btn" onclick="openPage('home')">Kembali</button>
+</section>
+
+<footer>
+    © 2025 SkillBites - Microlearning Platform
+</footer>
+
+<script>
+let redirectAfterLogin = "";
+
+// === NAVIGASI LOGIN ===
+function openLogin(targetPage) {
+    redirectAfterLogin = targetPage;
+    openPage("Login");
+}
+
+function continueAfterLogin() {
+    if (redirectAfterLogin) {
+        openPage(redirectAfterLogin);
+        redirectAfterLogin = "";
+    } else {
+        openPage('JobTrack');
+    }
+}
+
+// === SISTEM NAVIGASI HALAMAN ===
+function openPage(page) {
+    const pages = document.querySelectorAll(".page, .hidden-page");
+    pages.forEach(p => p.style.display = "none");
+    const targetElement = document.getElementById(page);
+    if (targetElement) {
+        targetElement.style.display = "block";
+        window.scrollTo(0, 0);
+    }
+}
+
+// === EVENT LISTENER ===
+document.addEventListener("DOMContentLoaded", () => {
+    // Login form handler
+    const loginForm = document.querySelector('#Login form');
+    if (loginForm) {
+        loginForm.onsubmit = (e) => {
+            e.preventDefault();
+            continueAfterLogin();
+        };
+    }
+
+    // Komunikasi
+    document.getElementById("submitKuisKomunikasi")
+        ?.addEventListener("click", handleKuisKomunikasi);
+
+    // Email Handling
+    document.getElementById("submitKuisEmail")
+        ?.addEventListener("click", handleKuisEmail);
+
+    // Administrasi
+    document.getElementById("submitKuisAdmin")
+        ?.addEventListener("click", handleKuisAdmin);
+
+    // Organisasi
+    document.getElementById("submitKuisOrganis")
+        ?.addEventListener("click", handleKuisOrganis);
+    
+    // TA1
+    document.getElementById("submitTA1")
+        ?.addEventListener("click", handleTA1);
+
+    // TA2
+    document.getElementById("submitTA2")
+        ?.addEventListener("click", handleTA2);
+
+    // TA3
+    document.getElementById("submitTA3")
+        ?.addEventListener("click", handleTA3);
+    
+    // TA4
+    document.getElementById("submitTA4")
+        ?.addEventListener("click", handleTA4);
+
+    // TA5
+    document.getElementById("submitTA5")
+        ?.addEventListener("click", handleTA5);
+    
+    // TA6
+    document.getElementById("submitTA6")
+        ?.addEventListener("click", handleTA6);
+
+    // TA7
+    document.getElementById("submitTA7")
+        ?.addEventListener("click", handleTA7);
+
+    // TA8
+    document.getElementById("submitTA8")
+        ?.addEventListener("click", handleTA8);
+
+    // TA9
+    document.getElementById("submitTA9")
+        ?.addEventListener("click", handleTA9);
+});
+
+// ================= TASK ASSESMENT 1 =================
+function handleTA1() {
+    const jawaban = document.getElementById("jawabanTA1").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (
+        jawaban.includes("terima kasih") ||
+        jawaban.includes("mohon maaf") ||
+        jawaban.includes("kami informasikan")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+
+    // Cek kejelasan status
+    if (
+        jawaban.includes("sedang") ||
+        jawaban.includes("proses") ||
+        jawaban.includes("revisi")
+    ) {
+        score++;
+        detail.push("<li>Status pekerjaan jelas: ✅</li>");
+    } else {
+        detail.push("<li>Status pekerjaan jelas: ❌</li>");
+    }
+
+    // Cek empati / pelayanan
+    if (
+        jawaban.includes("kami pahami") ||
+        jawaban.includes("akan kami") ||
+        jawaban.includes("segera")
+    ) {
+        score++;
+        detail.push("<li>Empati & solusi: ✅</li>");
+    } else {
+        detail.push("<li>Empati & solusi: ❌</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } else if (score === 2) {
+        summary = "Jawaban cukup baik, tapi masih bisa dibuat lebih meyakinkan.";
+    } else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional dan informatif.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA1").style.display = "block";
+    document.getElementById("summaryTA1").innerText = summary;
+    document.getElementById("detailTA1").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 2 =================
+function handleTA2() {
+    const jawaban = document.getElementById("jawabanTA2").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Cek profesional
+    if (
+        jawaban.includes("terima kasih") ||
+        jawaban.includes("mohon maaf") ||
+        jawaban.includes("kami informasikan")
+    ) {
+        score++;
+        detail.push("<li>Bahasa profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa profesional: ❌</li>");
+    }
+
+    // Cek kejelasan status
+    if (
+        jawaban.includes("segera") ||
+        jawaban.includes("harus") ||
+        jawaban.includes("penting")
+    ) {
+        score++;
+        detail.push("<li>Status pekerjaan jelas: ✅</li>");
+    } else {
+        detail.push("<li>Status pekerjaan jelas: ❌</li>");
+    }
+
+    // Cek empati / pelayanan
+    if (
+        jawaban.includes("tidak terlalu") ||
+        jawaban.includes("bisa") ||
+        jawaban.includes("diatur lagi")
+    ) {
+        score++;
+        detail.push("<li>Empati & solusi: ✅</li>");
+    } else {
+        detail.push("<li>Empati & solusi: ❌</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban sangat profesional dan siap digunakan di dunia kerja.";
+    } else if (score === 2) {
+        summary = "Jawaban cukup baik, tapi masih bisa dibuat lebih meyakinkan.";
+    } else {
+        summary = "Jawaban perlu diperbaiki agar lebih profesional dan informatif.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA2").style.display = "block";
+    document.getElementById("summaryTA2").innerText = summary;
+    document.getElementById("detailTA2").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 3 =================
+function handleTA3() {
+    const jawaban = document.getElementById("jawabanTA3").value.trim().toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // KONDISI 1 : CEO FREE DI JAM 09.00-10.00
+    if (jawaban.includes("9") || jawaban.includes("09.00") || jawaban.includes("sembilan")) {
+        score++;
+        detail.push("<li>Jadwal CEO (09.00 - 10.00): ✅ Terakomodasi</li>");
+    } else {
+        detail.push("<li>Jadwal CEO (09.00 - 10.00): ❌ Salah/Tidak disebut</li>");
+    }
+
+    // KONDISI 2: KLIEN FREE DI JAM 10.00-12.00
+    if (jawaban.includes("10") || jawaban.includes("10.00") || jawaban.includes("sepuluh")) {
+        score++;
+        detail.push("<li>Jadwal Klien (10.00 - 12.00): ✅ Terakomodasi</li>");
+    } else {
+        detail.push("<li>Jadwal Klien (10.00 - 12.00): ❌ Salah/Tidak disebut</li>");
+    }
+
+    // KRITERIA 1: BAHASA PROFESIONAL & KESIGAPAN
+    if (
+        jawaban.includes("baik") || 
+        jawaban.includes("siap") || 
+        jawaban.includes("saya atur") || 
+        jawaban.includes("segera") ||
+        jawaban.includes("terima kasih")
+    ) {
+        score++;
+        detail.push("<li>Bahasa & Kesigapan: ✅ Profesional</li>");
+    } else {
+        detail.push("<li>Bahasa & Kesigapan: ❌ Kurang formal</li>");
+    }
+
+    // SUMMARY
+    let summary = "";
+    if (score === 3) {
+        summary = "Sempurna! Anda mengatur jadwal dengan logis tanpa bentrok.";
+        document.getElementById("summaryTA3").style.color = "green";
+    } else if (score === 2) {
+        summary = "Hampir benar, perhatikan kembali detail jam yang tersedia.";
+        document.getElementById("summaryTA3").style.color = "orange";
+    } else {
+        summary = "Jadwal belum tepat. Cek kembali ketersediaan waktu CEO dan Klien.";
+        document.getElementById("summaryTA3").style.color = "red";
+    }
+
+    // TAMPILKAN HASIL
+    document.getElementById("hasilTA3").style.display = "block";
+    document.getElementById("summaryTA3").innerText = summary;
+    document.getElementById("detailTA3").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 4 =================
+function handleTA4() {
+    const jawaban = document.getElementById("jawabanTA4").value
+        .trim()
+        .toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Jawaban benar (acuan)
+    const correct = {
+        finance: ["2", "4"],
+        hr: ["1", "3", "6"],
+        marketing: ["5"]
+    };
+
+    // Ambil jawaban user
+    function extractNumbers(keyword) {
+        const regex = new RegExp(keyword + "\\s*:\\s*([0-9,\\s]+)");
+        const match = jawaban.match(regex);
+        if (!match) return [];
+        return match[1].split(",").map(n => n.trim());
+    }
+
+    const userFinance = extractNumbers("finance");
+    const userHR = extractNumbers("hr");
+    const userMarketing = extractNumbers("marketing");
+
+    // Fungsi pembanding
+    function isSameAnswer(user, correct) {
+        return (
+            user.length === correct.length &&
+            user.every(num => correct.includes(num))
+        );
+    }
+
+    // Penilaian Finance
+    if (isSameAnswer(userFinance, correct.finance)) {
+        score++;
+        detail.push("<li>Finance: ✅</li>");
+    } else {
+        detail.push("<li>Finance: ❌ (Seharusnya 2, 4)</li>");
+    }
+
+    // Penilaian HR
+    if (isSameAnswer(userHR, correct.hr)) {
+        score++;
+        detail.push("<li>HR: ✅</li>");
+    } else {
+        detail.push("<li>HR: ❌ (Seharusnya 1, 3, 6)</li>");
+    }
+
+    // Penilaian Marketing
+    if (isSameAnswer(userMarketing, correct.marketing)) {
+        score++;
+        detail.push("<li>Marketing: ✅</li>");
+    } else {
+        detail.push("<li>Marketing: ❌ (Seharusnya 5)</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 3) {
+        summary = "Jawaban benar seluruhnya. Kategori file sudah tepat.";
+    } else if (score === 2) {
+        summary = "Jawaban hampir benar, masih ada satu kategori yang keliru.";
+    } else if (score === 1) {
+        summary = "Jawaban kurang tepat. Perlu memahami fungsi tiap dokumen.";
+    } else {
+        summary = "Jawaban salah. Perlu memahami kategori Finance, HR, dan Marketing.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA4").style.display = "block";
+    document.getElementById("summaryTA4").innerText = summary;
+    document.getElementById("detailTA4").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 5 =================
+function handleTA5() {
+    const jawaban = document.getElementById("jawabanTA5").value
+        .trim()
+        .toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Kriteria penilaian
+    const criteria = {
+        empati: ["maaf", "mohon maaf", "kami memahami", "mengerti"],
+        ramah: ["terima kasih", "silakan", "kami siap membantu"],
+        jelas: ["refund", "pengembalian dana", "diproses", "status"],
+        singkat: jawaban.length <= 200
+    };
+
+    // Cek empati
+    if (criteria.empati.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Empatik: ✅</li>");
+    } else {
+        detail.push("<li>Empatik: ❌</li>");
+    }
+
+    // Cek keramahan
+    if (criteria.ramah.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Ramah: ✅</li>");
+    } else {
+        detail.push("<li>Ramah: ❌</li>");
+    }
+
+    // Cek kejelasan konteks refund
+    if (criteria.jelas.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Jelas (Refund): ✅</li>");
+    } else {
+        detail.push("<li>Jelas (Refund): ❌</li>");
+    }
+
+    // Cek singkat
+    if (criteria.singkat) {
+        score++;
+        detail.push("<li>Singkat & Efisien: ✅</li>");
+    } else {
+        detail.push("<li>Singkat & Efisien: ❌</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 4) {
+        summary = "Respon sangat baik: singkat, jelas, ramah, dan empatik.";
+    } else if (score === 3) {
+        summary = "Respon sudah baik, namun masih bisa ditingkatkan.";
+    } else if (score === 2) {
+        summary = "Respon kurang optimal. Perlu perbaikan nada dan kejelasan.";
+    } else {
+        summary = "Respon belum sesuai standar layanan pelanggan.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA5").style.display = "block";
+    document.getElementById("summaryTA5").innerText = summary;
+    document.getElementById("detailTA5").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 6 =================
+function handleTA6() {
+    const jawaban = document.getElementById("jawabanTA6").value
+        .trim()
+        .toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Kriteria penilaian respon downtime
+    const criteria = {
+        profesional: ["kami informasikan", "kami sampaikan", "sistem", "layanan"],
+        menenangkan: ["mohon maaf", "terima kasih atas kesabarannya", "harap tenang", "kami pastikan"],
+        downtime: ["downtime", "gangguan", "tidak dapat diakses"],
+        durasi: ["20 menit", "±20 menit", "sekitar 20 menit"],
+        singkat: jawaban.length <= 220
+    };
+
+    // Cek profesional
+    if (criteria.profesional.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Bahasa Profesional: ✅</li>");
+    } else {
+        detail.push("<li>Bahasa Profesional: ❌</li>");
+    }
+
+    // Cek menenangkan
+    if (criteria.menenangkan.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Nada Menenangkan: ✅</li>");
+    } else {
+        detail.push("<li>Nada Menenangkan: ❌</li>");
+    }
+
+    // Cek konteks downtime
+    if (criteria.downtime.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Informasi Downtime: ✅</li>");
+    } else {
+        detail.push("<li>Informasi Downtime: ❌</li>");
+    }
+
+    // Cek durasi
+    if (criteria.durasi.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Estimasi Waktu Jelas: ✅</li>");
+    } else {
+        detail.push("<li>Estimasi Waktu Jelas: ❌</li>");
+    }
+
+    // Cek singkat
+    if (criteria.singkat) {
+        score++;
+        detail.push("<li>Singkat & Efisien: ✅</li>");
+    } else {
+        detail.push("<li>Singkat & Efisien: ❌</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 5) {
+        summary = "Respon sangat baik: profesional, menenangkan, dan informatif.";
+    } else if (score >= 3) {
+        summary = "Respon cukup baik, namun masih bisa diperjelas.";
+    } else {
+        summary = "Respon belum sesuai standar komunikasi downtime.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA6").style.display = "block";
+    document.getElementById("summaryTA6").innerText = summary;
+    document.getElementById("detailTA6").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 7 =================
+function handleTA7() {
+    const jawaban = document.getElementById("jawabanTA7").value
+        .trim();
+
+    let score = 0;
+    let detail = [];
+
+    /**
+     * Format yang diharapkan:
+     * Nama: ...
+     * Email: ...
+     * Tanggal: ...
+     * Nomor Telepon: ...
+     */
+
+    // Regex validasi
+    const regex = {
+        nama: /nama\s*:\s*[a-zA-Z\s]{3,}/i,
+        email: /email\s*:\s*[^\s@]+@[^\s@]+\.[^\s@]+/i,
+        tanggal: /tanggal\s*:\s*\d{2}-\d{2}-\d{4}/i, // DD-MM-YYYY
+        telepon: /nomor telepon\s*:\s*\+?\d{10,15}/i
+    };
+
+    // Cek Nama
+    if (regex.nama.test(jawaban)) {
+        score++;
+        detail.push("<li>Nama: ✅</li>");
+    } else {
+        detail.push("<li>Nama: ❌ (Format tidak sesuai)</li>");
+    }
+
+    // Cek Email
+    if (regex.email.test(jawaban)) {
+        score++;
+        detail.push("<li>Email: ✅</li>");
+    } else {
+        detail.push("<li>Email: ❌ (Format email salah)</li>");
+    }
+
+    // Cek Tanggal
+    if (regex.tanggal.test(jawaban)) {
+        score++;
+        detail.push("<li>Tanggal: ✅</li>");
+    } else {
+        detail.push("<li>Tanggal: ❌ (Gunakan format DD-MM-YYYY)</li>");
+    }
+
+    // Cek Nomor Telepon
+    if (regex.telepon.test(jawaban)) {
+        score++;
+        detail.push("<li>Nomor Telepon: ✅</li>");
+    } else {
+        detail.push("<li>Nomor Telepon: ❌ (Minimal 10 digit)</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 4) {
+        summary = "Data berhasil dimasukkan dengan format yang benar.";
+    } else if (score >= 2) {
+        summary = "Sebagian data sudah benar, namun masih ada kesalahan format.";
+    } else {
+        summary = "Format data tidak sesuai. Mohon periksa kembali input Anda.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA7").style.display = "block";
+    document.getElementById("summaryTA7").innerText = summary;
+    document.getElementById("detailTA7").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 8 =================
+function handleTA8() {
+    const jawaban = document.getElementById("jawabanTA8").value
+        .trim()
+        .toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Urutan paling efektif (acuan)
+    const correctOrder = [
+        "balas email klien",
+        "update jadwal ceo",
+        "rapat dengan marketing",
+        "follow-up vendor",
+        "input data",
+        "membuat laporan"
+    ];
+
+    // Ambil urutan user (berdasarkan nomor)
+    const userOrder = jawaban
+        .split("\n")
+        .map(line => line.replace(/^\d+[\.\)]\s*/, "").trim())
+        .filter(line => line !== "");
+
+    // Validasi jumlah tugas
+    if (userOrder.length !== correctOrder.length) {
+        document.getElementById("hasilTA8").style.display = "block";
+        document.getElementById("summaryTA8").innerText =
+            "Jumlah tugas tidak sesuai. Pastikan semua tugas disusun.";
+        document.getElementById("detailTA8").innerHTML = "";
+        return;
+    }
+
+    // Penilaian per urutan
+    userOrder.forEach((task, index) => {
+        if (task === correctOrder[index]) {
+            score++;
+            detail.push(`<li>${index + 1}. ${task}: ✅</li>`);
+        } else {
+            detail.push(
+                `<li>${index + 1}. ${task}: ❌ (Seharusnya: ${correctOrder[index]})</li>`
+            );
+        }
+    });
+
+    // Summary
+    let summary = "";
+    if (score === 6) {
+        summary = "Urutan kerja sangat tepat dan efisien.";
+    } else if (score >= 4) {
+        summary = "Urutan cukup baik, namun masih bisa dioptimalkan.";
+    } else {
+        summary = "Urutan kurang efektif. Perlu memahami prioritas kerja.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA8").style.display = "block";
+    document.getElementById("summaryTA8").innerText = summary;
+    document.getElementById("detailTA8").innerHTML = detail.join("");
+}
+
+// ================= TASK ASSESMENT 9 =================
+function handleTA9() {
+    const jawaban = document.getElementById("jawabanTA9").value
+        .trim()
+        .toLowerCase();
+
+    let score = 0;
+    let detail = [];
+
+    // Kriteria penilaian
+    const criteria = {
+        profesional: ["menginformasikan", "menyampaikan", "koordinasi", "komunikasi"],
+        empati: ["memahami", "mengerti", "menghargai"],
+        solusi: ["menawarkan", "alternatif", "menjadwalkan ulang", "reschedule", "delegasi"],
+        tidak_menyalahkan: ["mohon", "izin", "diskusikan"],
+        singkat: jawaban.length <= 250
+    };
+
+    // Cek profesional
+    if (criteria.profesional.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Profesional: ✅</li>");
+    } else {
+        detail.push("<li>Profesional: ❌</li>");
+    }
+
+    // Cek empati
+    if (criteria.empati.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Empati & Sopan: ✅</li>");
+    } else {
+        detail.push("<li>Empati & Sopan: ❌</li>");
+    }
+
+    // Cek solusi
+    if (criteria.solusi.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Memberikan Solusi: ✅</li>");
+    } else {
+        detail.push("<li>Memberikan Solusi: ❌</li>");
+    }
+
+    // Cek tidak menyalahkan
+    if (criteria.tidak_menyalahkan.some(word => jawaban.includes(word))) {
+        score++;
+        detail.push("<li>Tidak Menyalahkan Pihak Lain: ✅</li>");
+    } else {
+        detail.push("<li>Tidak Menyalahkan Pihak Lain: ❌</li>");
+    }
+
+    // Cek singkat & jelas
+    if (criteria.singkat) {
+        score++;
+        detail.push("<li>Singkat & Jelas: ✅</li>");
+    } else {
+        detail.push("<li>Singkat & Jelas: ❌</li>");
+    }
+
+    // Summary
+    let summary = "";
+    if (score === 5) {
+        summary =
+            "Respon sangat baik. Menunjukkan profesionalisme dan kemampuan menyelesaikan konflik jadwal.";
+    } else if (score >= 3) {
+        summary =
+            "Respon cukup baik, namun solusi atau komunikasi masih bisa diperjelas.";
+    } else {
+        summary =
+            "Respon kurang tepat. Perlu pendekatan yang lebih solutif dan profesional.";
+    }
+
+    // Tampilkan hasil
+    document.getElementById("hasilTA9").style.display = "block";
+    document.getElementById("summaryTA9").innerText = summary;
+    document.getElementById("detailTA49").innerHTML = detail.join("");
+}
+
+
+// ==========================================================
+// ================== 1. KUIS KOMUNIKASI ====================
+// ==========================================================
+function handleKuisKomunikasi() {
+    let correct = 0;
+
+    // Jawaban benar Q1 = B
+    const q1 = Array.from(document.querySelectorAll('input[name="kom_q1_option"]:checked'))
+                    .map(i => i.value);
+    if (q1.includes("B") && q1.length === 1) correct++;
+
+    let jawaban2 = document.getElementById("jawabanKomunikasi2").value.trim();
+
+    let summary = "";
+    if (correct === 1) summary = "Kamu menunjukkan pemahaman komunikasi yang baik.";
+    else summary = "Pemahaman komunikasimu masih perlu ditingkatkan.";
+
+    let rekomendasi = "";
+    if (correct === 1) rekomendasi = "Pelajari conflict resolution & active listening.";
+    else rekomendasi = "Pelajari cara merespon kritik dan komunikasi asertif.";
+
+    document.getElementById("hasilKomunikasi").style.display = "block";
+    document.getElementById("summaryKomunikasi").innerText = summary;
+    document.getElementById("rekomendasiKomunikasi").innerText = rekomendasi;
+}
+
+
+
+// ==========================================================
+// ================== 2. EMAIL HANDLING =====================
+// ==========================================================
+function handleKuisEmail() {
+    let correct = 0;
+
+    // Jawaban benar Q1 = B
+    const q1 = Array.from(document.querySelectorAll('input[name="email_q1_option"]:checked'))
+                    .map(i => i.value);
+    if (q1.includes("B") && q1.length === 1) correct++;
+
+    const jawaban2 = document.getElementById("jawabanEmail2").value.trim();
+
+    let summary = correct === 1
+        ? "Email formal kamu sudah cukup baik."
+        : "Cara penulisan email formal masih perlu latihan.";
+
+    let rekom = correct === 1
+        ? "Pelajari email negotiation & cold-emailing."
+        : "Pelajari struktur email profesional & kesopanan bisnis.";
+
+    document.getElementById("hasilEmail").style.display = "block";
+    document.getElementById("summaryEmail").innerText = summary;
+    document.getElementById("rekomendasiEmail").innerText = rekom;
+
+    let detail = document.getElementById("detailEmail");
+    detail.innerHTML = `
+        <li>Jawaban pilihan ganda: ${correct === 1 ? "Benar" : "Kurang tepat"}</li>
+        <li>Penulisan email: ${jawaban2.length > 40 ? "Baik" : "Perlu dikembangkan"}</li>
+    `;
+}
+
+
+
+// ==========================================================
+// ================= 3. ADMINISTRATION ======================
+// ==========================================================
+function handleKuisAdmin(){
+    let correct = 0;
+
+    // Q1 jawaban benar = Senin 15.00 (C)
+    const q1 = Array.from(document.querySelectorAll('#KuisAdmin input[name="admin_q1_option"]:checked')) // <-- PERBAIKAN 1
+                        .map(i => i.value);
+    if (q1.includes("C") && q1.length === 1) correct++; 
+
+    // Q2 jawaban benar = 1-2-4-3 (D)
+    const q2 = Array.from(document.querySelectorAll('#KuisAdmin input[name="admin_q2_option"]:checked')) // <-- PERBAIKAN 2
+                        .map(i => i.value);
+    if (q2.includes("D") && q2.length === 1) correct++;
+
+    let summary = "";
+    if (correct === 2) summary = "Skill administrasi kamu sangat baik!";
+    else summary = "Masih ada ruang untuk perbaikan dalam manajemen tugas.";
+
+    let rekomendasi = "";
+    if (correct === 2) rekomendasi = "Lanjutkan dengan materi manajemen waktu & workflow profesional.";
+    else rekomendasi = "Pelajari teknik scheduling, analisis prioritas, dan task batching.";
+
+    let detail = document.getElementById("detailAdmin");
+    detail.innerHTML = `
+        <li>Penjadwalan meeting: ${correct === 2 ? "Benar" : "Salah"}</li>
+        <li>Prioritas tugas: ${correct === 2 ? "Benar" : "Salah"}</li>
+    `;
+
+    document.getElementById("hasilAdmin").style.display = "block";
+    document.getElementById("summaryAdmin").innerText = summary;
+    document.getElementById("rekomendasiAdmin").innerText = rekomendasi;
+}
+
+// ==========================================================
+// ================= 4. ORGANIZATION ========================
+// ==========================================================
+function handleKuisOrganis(){
+    let correct = 0;
+    
+    // --- Q1 (Jawaban Text Area) ---
+    const jawaban1 = document.getElementById("jawabanOrganis1").value.trim();
+    let analisisQ1 = 0;
+
+    // Logika sederhana: cek apakah jawaban mencakup pembagian tugas yang logis (riset ke B, desain ke A, presentasi ke C)
+    if (jawaban1.length > 50 && 
+        (jawaban1.toLowerCase().includes('riset') && jawaban1.toLowerCase().includes('b')) &&
+        (jawaban1.toLowerCase().includes('desain') && jawaban1.toLowerCase().includes('a')) &&
+        (jawaban1.toLowerCase().includes('presentasi') && jawaban1.toLowerCase().includes('c'))
+    ) {
+        analisisQ1 = 1;
+    }
+
+
+    // --- Q2 (Jawaban Checkbox) ---
+    // Jawaban benar Q2 = B
+    const q2 = Array.from(document.querySelectorAll('input[name="organis_q2_option"]:checked'))
+                        .map(i => i.value);
+    
+    if (q2.includes("B") && q2.length === 1) correct++;
+
+    // --- Penilaian Akhir & Rekomendasi ---
+    const totalScore = correct + analisisQ1; // Total skor maksimal 2
+    
+    let summary = "";
+    let rekomendasi = "";
+    
+    if (totalScore === 2) {
+        summary = "Pengetahuan Anda dalam keorganisasian dan manajemen konflik sangat baik!";
+        rekomendasi = "Lanjutkan dengan materi kepemimpinan strategis dan efisiensi tim.";
+    } else if (totalScore === 1) {
+        summary = "Anda memiliki dasar organisasi yang cukup, fokus pada manajemen konflik tim.";
+        rekomendasi = "Pelajari teknik delegasi berdasarkan keahlian (skill-based delegation) dan mediasi konflik.";
+    } else {
+        summary = "Pemahaman dasar organisasi perlu ditingkatkan.";
+        rekomendasi = "Pelajari dasar-dasar team building, pembagian tugas, dan resolusi konflik.";
+    }
+
+    let detail = document.getElementById("detailOrganis");
+    detail.innerHTML = `
+        <li>Pembagian Tugas (Q1): ${analisisQ1 === 1 ? "Optimal" : "Perlu perbaikan delegasi"}</li>
+        <li>Manajemen Konflik (Q2): ${correct === 1 ? "Benar" : "Salah"}</li>
+    `;
+
+    document.getElementById("hasilOrganis").style.display = "block";
+    document.getElementById("summaryOrganis").innerText = summary;
+    document.getElementById("rekomendasiOrganis").innerText = rekomendasi;
+}
+</script>
+</body>
+</html>
